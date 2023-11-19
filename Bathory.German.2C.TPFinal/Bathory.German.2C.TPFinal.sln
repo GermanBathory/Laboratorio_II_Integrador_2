@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{E562974E-A767-43BB-9EB9-ED97A36BBA8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Entidades.csproj", "{E562974E-A767-43BB-9EB9-ED97A36BBA8B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forms", "Forms\Forms.csproj", "{2BF94FF7-D573-4DE3-85C6-DFA0A5CED65C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MisTestUnitarios", "MisTestUnitarios\MisTestUnitarios.csproj", "{A148F21C-3F94-4D3E-879A-BE5B723ABDA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{E562974E-A767-43BB-9EB9-ED97A36BBA8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E562974E-A767-43BB-9EB9-ED97A36BBA8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E562974E-A767-43BB-9EB9-ED97A36BBA8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BF94FF7-D573-4DE3-85C6-DFA0A5CED65C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BF94FF7-D573-4DE3-85C6-DFA0A5CED65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BF94FF7-D573-4DE3-85C6-DFA0A5CED65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BF94FF7-D573-4DE3-85C6-DFA0A5CED65C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A148F21C-3F94-4D3E-879A-BE5B723ABDA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A148F21C-3F94-4D3E-879A-BE5B723ABDA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A148F21C-3F94-4D3E-879A-BE5B723ABDA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A148F21C-3F94-4D3E-879A-BE5B723ABDA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

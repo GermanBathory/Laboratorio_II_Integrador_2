@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class Omnibus
+    public class Omnibus
     {
+        private EEmpresa empresa;
+        private bool asientosLibres;
+
     }
 }

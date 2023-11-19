@@ -21,20 +21,40 @@ namespace Entidades
         {
             get
             {
-                return nombre;
+                return this.nombre;
             }
             set
             {
                 if (Validadora.ValidarString(value))
                 {
-                    nombre = value;
+                    this.nombre = value;
                 }
                 else
                 {
                     throw new Exception("El nombre es invalido");
                 }
+            }
+        }
+        public string Apellido
+        {
+            get
+            {
+                return this.apellido;
+            }
+            set
+            {
+                if (Validadora.ValidarString(value))
+                {
+                    this.apellido = value;
+                }
+                else
+                {
+                    throw new Exception("El apellido es invalido");
+                }
 
             }
         }
+        public abstract string MostrarInformacion();
+
     }
 }

@@ -13,7 +13,7 @@ namespace Entidades
         private ECiudad destino;
         private DateTime fechaPartida;
         private DateTime horaPartida;
-        private int idCliente;
+        private int idViaje;
 
         public Viaje()
         {
@@ -29,18 +29,19 @@ namespace Entidades
             this.horaPartida = horaPartida;
         }
 
-        public EEmpresa Empresa { get => empresa; }
+        public EEmpresa Empresa { get => empresa; set => empresa = value; }
         public ECiudad Origen { get => origen; set => origen = value; }
         public ECiudad Destino { get => destino; set => destino = value; }
         public DateTime FechaPartida { get => fechaPartida; set => fechaPartida = value; }
         public DateTime HoraPartida { get => horaPartida; set => horaPartida = value; }
-        public int IdCliente { get => idCliente; }
+        public int IdViaje { get => idViaje; set => idViaje = value; }
+        
 
         public string ImprimirPasaje()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append($"[Empresa: {this.Empresa}] [Origen: {this.Origen}] [Destino: {this.Destino}] " +
-                $"[Fecha de Partida: {this.FechaPartida}] [Hora de Partida: {this.HoraPartida}]");
+                $"[Fecha de Partida: {this.FechaPartida.ToString("dd/MM/yyyy")}] [Hora de Partida: {this.HoraPartida.ToString("HH:mm")}]");
             return sb.ToString();
         }
     }

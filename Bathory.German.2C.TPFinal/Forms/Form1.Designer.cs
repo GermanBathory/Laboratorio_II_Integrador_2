@@ -58,6 +58,7 @@
             btnOpciones.TabIndex = 1;
             btnOpciones.Text = "Opciones Administrador";
             btnOpciones.UseVisualStyleBackColor = false;
+            btnOpciones.Click += btnOpciones_Click;
             // 
             // lblTitulo
             // 
@@ -110,7 +111,7 @@
             MaximizeBox = false;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Venta de Pasajes";
+            Text = "Reserva de Pasajes";
             TransparencyKey = SystemColors.ActiveBorder;
             FormClosing += Form1_FormClosing;
             ResumeLayout(false);

@@ -13,8 +13,9 @@ namespace Forms
 {
     public partial class Form2 : Form
     {
-        Cliente cliente;
-        Viaje viaje;
+        Cliente? cliente;
+        Viaje? viaje;
+        List<string> clientes;
 
         public Form2()
         {
@@ -36,6 +37,10 @@ namespace Forms
             {
                 string? s = Enum.GetName(typeof(ECiudad), i);
                 this.cmbOrigen.Items.Add(s);
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                string? s = Enum.GetName(typeof(ECiudad), i);
                 this.cmbDestino.Items.Add(s);
             }
 
@@ -44,19 +49,12 @@ namespace Forms
                 this.cmbPartida.Items.Add(salida.ToString("HH:mm"));
                 salida = salida.AddHours(1);
             }
-
-
         }
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
-            //try { cliente.Nombre = txtNombre.Text; }
-            //catch { }
-
         }
-
         private void cmbEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -75,11 +73,103 @@ namespace Forms
 
         private void btnReservar_Click(object sender, EventArgs e)
         {
-            viaje = new Viaje((EEmpresa)this.cmbEmpresa.SelectedItem, (ECiudad)this.cmbOrigen.SelectedItem,
-                (ECiudad)this.cmbDestino.SelectedItem, (DateTime)this.dtpFechaPartida.Value, 
-                (DateTime)this.cmbPartida.SelectedItem);
-            MessageBox.Show($"{viaje.ImprimirPasaje}");
+            try
+            {
+                this.AgregarPasaje();
 
+            }
+            catch (Exception excep)
+            {
+                MessageBox.Show(excep.Message);
+            }
+        }
+        private void AgregarPasaje()
+        {
+            if (this.cmbEmpresa.Text is not null && this.cmbOrigen.SelectedItem is not null &&
+                this.cmbDestino.SelectedItem is not null &&
+                this.dtpFechaPartida.Text != String.Empty && this.cmbPartida.SelectedItem is not null)
+            {
+                DateTime fechaPartida = new DateTime();
+                DateTime horaPartida = new DateTime();
+                fechaPartida = DateTime.Parse(this.dtpFechaPartida.Text);
+                horaPartida = DateTime.Parse(this.cmbPartida.Text);
+
+                viaje = new Viaje(Enum.Parse<EEmpresa>(this.cmbEmpresa.Text),
+                    Enum.Parse<ECiudad>(this.cmbOrigen.Text), Enum.Parse<ECiudad>(this.cmbDestino.Text),
+                    fechaPartida, horaPartida);
+
+                MessageBox.Show($"Viaje cargado.");
+                GestorSql.AgregarNuevoViaje(viaje);
+            }
+            else
+            {
+                throw new Exception("Algún campo está vacío.");
+            }
+        }
+
+        private void cmbOrigen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void cmbOrigen_SelectedValueChanged(object sender, EventArgs e)
+        {
+            this.cmbDestino.Items.Clear();
+            int x = 5;
+            this.cmbDestino.Text = "";
+
+            for (int i = 0; i < x; i++)
+            {
+                string? s = Enum.GetName(typeof(ECiudad), i);
+                if (this.cmbOrigen.Text != s)
+                {
+                    this.cmbDestino.Items.Add(s);
+                }
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.CargarCliente();
+
+
+            }
+            catch (Exception excep)
+            {
+                MessageBox.Show(excep.Message);
+            }
+
+        }
+
+        private void CargarCliente()
+        {
+            if (this.txtNombre.Text != String.Empty && this.txtApellido.Text != String.Empty &&
+                this.txtDni.Text != String.Empty)
+            {
+                cliente = new Cliente(this.txtNombre.Text, this.txtApellido.Text,
+                    int.Parse(this.txtDni.Text));
+                cliente.Nombre = this.txtNombre.Text;
+                cliente.Apellido = this.txtApellido.Text;
+                cliente.Dni = int.Parse(this.txtDni.Text);
+
+                GestorSql.AgregarNuevoCliente(cliente);
+
+            }
+            else
+            {
+                throw new Exception("Algún campo está vacío.");
+            }
+
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            this.lstClientes.Items.Clear();
+            foreach (var item in GestorSql.ObtenerTodosLosClientes())
+            {
+                this.lstClientes.Items.Add(item.MostrarInformacion());
+            }
 
         }
     }

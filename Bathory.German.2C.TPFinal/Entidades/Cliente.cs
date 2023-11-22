@@ -8,23 +8,21 @@ namespace Entidades
 {
     public class Cliente : Persona
     {
-        private int id;
+
         private int dni;
-        private int cantidadPasajes;
+        private int id_cliente;
+
 
         public Cliente()
         {
-            this.cantidadPasajes = 0;
         }
 
-        public Cliente(string nombre, string apellido, int id, int cantidadPasajes)
+        public Cliente(string nombre, string apellido, int dni)
             : base(nombre, apellido)
         {
-            this.id = id;
-            this.cantidadPasajes = cantidadPasajes;
+            this.dni = dni;
         }
 
-        public int Id { get => id; }
 
         public int Dni
         {
@@ -42,21 +40,8 @@ namespace Entidades
             }
         }
 
-        public int CantidadPasajes
-        {
-            get { return cantidadPasajes; }
-            set
-            {
-                if (Validadora.ValidarIntConMaxYMin(value.ToString(), -1, 1000))
-                {
-                    cantidadPasajes = value;
-                }
-                else
-                {
-                    throw new Exception("Cantidad invalida");
-                }
-            }
-        }
+        public int Id_cliente { get => id_cliente; set => id_cliente = value; }
+
         public override int GetHashCode()
         {
             return this.dni;
@@ -65,8 +50,8 @@ namespace Entidades
         public override string MostrarInformacion()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"[ID: {this.Id}] [Nombre: {this.Nombre}] [Apellido: {this.Apellido}] " +
-                $"[DNI: {this.Dni}] [Cantidad de pasajes: {this.CantidadPasajes}]");
+            sb.Append($"[Nombre: {this.Nombre}] [Apellido: {this.Apellido}] " +
+                $"[DNI: {this.Dni}]");
             return sb.ToString();
         }
     }

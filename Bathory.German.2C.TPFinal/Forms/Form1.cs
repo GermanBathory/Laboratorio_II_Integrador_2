@@ -26,5 +26,11 @@ namespace Forms
                 e.Cancel = true;
             }
         }
+
+        private void btnOpciones_Click(object sender, EventArgs e)
+        {
+            Form3 administrar = new Form3();
+            administrar.ShowDialog();
+        }
     }
 }

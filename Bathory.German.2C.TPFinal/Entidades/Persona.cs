@@ -13,7 +13,7 @@ namespace Entidades
 
         public Persona(string nombre, string apellido)
         {
-            Nombre = nombre;
+            this.nombre = nombre;
             this.apellido = apellido;
         }
 

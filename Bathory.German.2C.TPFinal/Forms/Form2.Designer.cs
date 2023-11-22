@@ -50,6 +50,8 @@
             lblFecha = new Label();
             btnReservar = new Button();
             btnCancelar = new Button();
+            lstClientes = new ListBox();
+            btnClientes = new Button();
             SuspendLayout();
             // 
             // lblNuevoCliente
@@ -65,36 +67,36 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblNombre.Location = new Point(64, 66);
+            lblNombre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblNombre.Location = new Point(12, 66);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(81, 25);
+            lblNombre.Size = new Size(68, 21);
             lblNombre.TabIndex = 1;
             lblNombre.Text = "Nombre\r\n";
             // 
             // lblApellido
             // 
             lblApellido.AutoSize = true;
-            lblApellido.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblApellido.Location = new Point(313, 66);
+            lblApellido.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblApellido.Location = new Point(11, 127);
             lblApellido.Name = "lblApellido";
-            lblApellido.Size = new Size(82, 25);
+            lblApellido.Size = new Size(67, 21);
             lblApellido.TabIndex = 2;
             lblApellido.Text = "Apellido";
             // 
             // lblDni
             // 
             lblDni.AutoSize = true;
-            lblDni.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblDni.Location = new Point(544, 66);
+            lblDni.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblDni.Location = new Point(12, 187);
             lblDni.Name = "lblDni";
-            lblDni.Size = new Size(44, 25);
+            lblDni.Size = new Size(37, 21);
             lblDni.TabIndex = 3;
             lblDni.Text = "DNI";
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(12, 94);
+            txtNombre.Location = new Point(12, 90);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(204, 23);
             txtNombre.TabIndex = 4;
@@ -102,32 +104,33 @@
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(250, 94);
+            txtApellido.Location = new Point(11, 151);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(205, 23);
             txtApellido.TabIndex = 8;
             // 
             // txtDni
             // 
-            txtDni.Location = new Point(488, 94);
+            txtDni.Location = new Point(11, 211);
             txtDni.Name = "txtDni";
             txtDni.Size = new Size(156, 23);
             txtDni.TabIndex = 9;
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(681, 90);
+            btnGuardar.Location = new Point(252, 151);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(107, 27);
             btnGuardar.TabIndex = 10;
-            btnGuardar.Text = "Guardar";
+            btnGuardar.Text = "Guardar Cliente";
             btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // lblDatos
             // 
             lblDatos.AutoSize = true;
             lblDatos.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblDatos.Location = new Point(12, 200);
+            lblDatos.Location = new Point(12, 270);
             lblDatos.Name = "lblDatos";
             lblDatos.Size = new Size(123, 20);
             lblDatos.TabIndex = 11;
@@ -137,7 +140,7 @@
             // 
             cmbEmpresa.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbEmpresa.FormattingEnabled = true;
-            cmbEmpresa.Location = new Point(12, 266);
+            cmbEmpresa.Location = new Point(12, 332);
             cmbEmpresa.Name = "cmbEmpresa";
             cmbEmpresa.Size = new Size(133, 23);
             cmbEmpresa.TabIndex = 12;
@@ -146,16 +149,18 @@
             // 
             cmbOrigen.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbOrigen.FormattingEnabled = true;
-            cmbOrigen.Location = new Point(185, 266);
+            cmbOrigen.Location = new Point(185, 332);
             cmbOrigen.Name = "cmbOrigen";
             cmbOrigen.Size = new Size(133, 23);
             cmbOrigen.TabIndex = 13;
+            cmbOrigen.SelectedIndexChanged += cmbOrigen_SelectedIndexChanged;
+            cmbOrigen.SelectedValueChanged += cmbOrigen_SelectedValueChanged;
             // 
             // cmbDestino
             // 
             cmbDestino.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDestino.FormattingEnabled = true;
-            cmbDestino.Location = new Point(349, 266);
+            cmbDestino.Location = new Point(349, 332);
             cmbDestino.Name = "cmbDestino";
             cmbDestino.Size = new Size(133, 23);
             cmbDestino.TabIndex = 14;
@@ -164,7 +169,7 @@
             // 
             cmbPartida.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPartida.FormattingEnabled = true;
-            cmbPartida.Location = new Point(276, 338);
+            cmbPartida.Location = new Point(276, 393);
             cmbPartida.Name = "cmbPartida";
             cmbPartida.Size = new Size(133, 23);
             cmbPartida.TabIndex = 16;
@@ -173,7 +178,7 @@
             // 
             lblEmpresa.AutoSize = true;
             lblEmpresa.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblEmpresa.Location = new Point(12, 243);
+            lblEmpresa.Location = new Point(12, 309);
             lblEmpresa.Name = "lblEmpresa";
             lblEmpresa.Size = new Size(66, 20);
             lblEmpresa.TabIndex = 17;
@@ -183,7 +188,7 @@
             // 
             lblOrigen.AutoSize = true;
             lblOrigen.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblOrigen.Location = new Point(185, 243);
+            lblOrigen.Location = new Point(185, 309);
             lblOrigen.Name = "lblOrigen";
             lblOrigen.Size = new Size(54, 20);
             lblOrigen.TabIndex = 18;
@@ -193,7 +198,7 @@
             // 
             lblDestino.AutoSize = true;
             lblDestino.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblDestino.Location = new Point(349, 243);
+            lblDestino.Location = new Point(349, 309);
             lblDestino.Name = "lblDestino";
             lblDestino.Size = new Size(60, 20);
             lblDestino.TabIndex = 19;
@@ -203,7 +208,7 @@
             // 
             lblPartida.AutoSize = true;
             lblPartida.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblPartida.Location = new Point(282, 315);
+            lblPartida.Location = new Point(276, 370);
             lblPartida.Name = "lblPartida";
             lblPartida.Size = new Size(113, 20);
             lblPartida.TabIndex = 20;
@@ -211,7 +216,7 @@
             // 
             // dtpFechaPartida
             // 
-            dtpFechaPartida.Location = new Point(12, 338);
+            dtpFechaPartida.Location = new Point(12, 393);
             dtpFechaPartida.Name = "dtpFechaPartida";
             dtpFechaPartida.Size = new Size(227, 23);
             dtpFechaPartida.TabIndex = 21;
@@ -220,7 +225,7 @@
             // 
             lblFecha.AutoSize = true;
             lblFecha.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFecha.Location = new Point(12, 315);
+            lblFecha.Location = new Point(12, 370);
             lblFecha.Name = "lblFecha";
             lblFecha.Size = new Size(118, 20);
             lblFecha.TabIndex = 22;
@@ -228,7 +233,7 @@
             // 
             // btnReservar
             // 
-            btnReservar.Location = new Point(516, 367);
+            btnReservar.Location = new Point(510, 393);
             btnReservar.Name = "btnReservar";
             btnReservar.Size = new Size(107, 27);
             btnReservar.TabIndex = 23;
@@ -238,19 +243,40 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(649, 367);
+            btnCancelar.Location = new Point(644, 393);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(107, 27);
             btnCancelar.TabIndex = 24;
-            btnCancelar.Text = "Cancelar";
+            btnCancelar.Text = "Cerrar";
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
+            // 
+            // lstClientes
+            // 
+            lstClientes.FormattingEnabled = true;
+            lstClientes.ItemHeight = 15;
+            lstClientes.Location = new Point(412, 19);
+            lstClientes.Name = "lstClientes";
+            lstClientes.Size = new Size(377, 274);
+            lstClientes.TabIndex = 25;
+            // 
+            // btnClientes
+            // 
+            btnClientes.Location = new Point(282, 60);
+            btnClientes.Name = "btnClientes";
+            btnClientes.Size = new Size(107, 27);
+            btnClientes.TabIndex = 26;
+            btnClientes.Text = "Mostrar Clientes";
+            btnClientes.UseVisualStyleBackColor = true;
+            btnClientes.Click += btnClientes_Click;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnClientes);
+            Controls.Add(lstClientes);
             Controls.Add(btnCancelar);
             Controls.Add(btnReservar);
             Controls.Add(lblFecha);
@@ -272,7 +298,9 @@
             Controls.Add(lblApellido);
             Controls.Add(lblNombre);
             Controls.Add(lblNuevoCliente);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "Form2";
             Text = "Reservar Pasaje";
             FormClosing += Form2_FormClosing;
@@ -306,5 +334,7 @@
         private Label lblArribo;
         private Button btnReservar;
         private Button btnCancelar;
+        private ListBox lstClientes;
+        private Button btnClientes;
     }
 }

@@ -50,8 +50,9 @@
             lblFecha = new Label();
             btnReservar = new Button();
             btnCancelar = new Button();
-            lstClientes = new ListBox();
             btnClientes = new Button();
+            dgvClientes = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
             // lblNuevoCliente
@@ -251,15 +252,6 @@
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // lstClientes
-            // 
-            lstClientes.FormattingEnabled = true;
-            lstClientes.ItemHeight = 15;
-            lstClientes.Location = new Point(412, 19);
-            lstClientes.Name = "lstClientes";
-            lstClientes.Size = new Size(377, 274);
-            lstClientes.TabIndex = 25;
-            // 
             // btnClientes
             // 
             btnClientes.Location = new Point(282, 60);
@@ -270,13 +262,24 @@
             btnClientes.UseVisualStyleBackColor = true;
             btnClientes.Click += btnClientes_Click;
             // 
+            // dgvClientes
+            // 
+            dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvClientes.Location = new Point(412, 39);
+            dgvClientes.Name = "dgvClientes";
+            dgvClientes.ReadOnly = true;
+            dgvClientes.RowTemplate.Height = 25;
+            dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvClientes.Size = new Size(376, 251);
+            dgvClientes.TabIndex = 27;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(dgvClientes);
             Controls.Add(btnClientes);
-            Controls.Add(lstClientes);
             Controls.Add(btnCancelar);
             Controls.Add(btnReservar);
             Controls.Add(lblFecha);
@@ -305,6 +308,7 @@
             Text = "Reservar Pasaje";
             FormClosing += Form2_FormClosing;
             Load += Form2_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -334,7 +338,7 @@
         private Label lblArribo;
         private Button btnReservar;
         private Button btnCancelar;
-        private ListBox lstClientes;
         private Button btnClientes;
+        private DataGridView dgvClientes;
     }
 }

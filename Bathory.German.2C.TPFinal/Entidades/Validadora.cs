@@ -41,7 +41,7 @@ namespace Entidades
                     return true;
                 }
             }
-            return false;
+            throw new NumeroInvalidoException("Numero invalido");
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Entidades
                     return true;
                 }
             }
-            return false;
+            throw new NumeroInvalidoException("Numero invalido");
         }
     }
 }

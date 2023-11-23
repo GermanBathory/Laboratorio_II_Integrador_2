@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Enti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forms", "Forms\Forms.csproj", "{2BF94FF7-D573-4DE3-85C6-DFA0A5CED65C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MisTestUnitarios", "MisTestUnitarios\MisTestUnitarios.csproj", "{A148F21C-3F94-4D3E-879A-BE5B723ABDA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MisTestUnitarios", "MisTestUnitarios\MisTestUnitarios.csproj", "{A148F21C-3F94-4D3E-879A-BE5B723ABDA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolaDePruebas", "ConsolaDePruebas\ConsolaDePruebas.csproj", "{025DFBD9-D8E9-41F5-A54C-2675A0BC6759}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{A148F21C-3F94-4D3E-879A-BE5B723ABDA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A148F21C-3F94-4D3E-879A-BE5B723ABDA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A148F21C-3F94-4D3E-879A-BE5B723ABDA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{025DFBD9-D8E9-41F5-A54C-2675A0BC6759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{025DFBD9-D8E9-41F5-A54C-2675A0BC6759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{025DFBD9-D8E9-41F5-A54C-2675A0BC6759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{025DFBD9-D8E9-41F5-A54C-2675A0BC6759}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

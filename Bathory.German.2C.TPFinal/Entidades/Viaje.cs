@@ -41,7 +41,7 @@ namespace Entidades
         {
             StringBuilder sb = new StringBuilder();
             sb.Append($"[Empresa: {this.Empresa}] [Origen: {this.Origen}] [Destino: {this.Destino}] " +
-                $"[Fecha de Partida: {this.FechaPartida.ToString("dd/MM/yyyy")}] [Hora de Partida: {this.HoraPartida.ToString("HH:mm")}]");
+                $"[Fecha de Partida: {this.FechaPartida.FormatoFechaPropio()}] [Hora de Partida: {this.HoraPartida.FormatoHoraPropio()}]");
             return sb.ToString();
         }
     }

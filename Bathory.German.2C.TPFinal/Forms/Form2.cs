@@ -16,10 +16,15 @@ namespace Forms
         Cliente? cliente;
         Viaje? viaje;
         List<string> clientes;
+        private GestorSqlViaje? gestorSqlViaje;
+        private GestorSqlCliente? gestorSqlCliente;
 
         public Form2()
         {
             InitializeComponent();
+            gestorSqlViaje = new GestorSqlViaje();
+            gestorSqlCliente = new GestorSqlCliente();
+                        
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -94,12 +99,12 @@ namespace Forms
                 fechaPartida = DateTime.Parse(this.dtpFechaPartida.Text);
                 horaPartida = DateTime.Parse(this.cmbPartida.Text);
 
-                viaje = new Viaje(Enum.Parse<EEmpresa>(this.cmbEmpresa.Text),
+                this.viaje = new Viaje(Enum.Parse<EEmpresa>(this.cmbEmpresa.Text),
                     Enum.Parse<ECiudad>(this.cmbOrigen.Text), Enum.Parse<ECiudad>(this.cmbDestino.Text),
                     fechaPartida, horaPartida);
 
                 MessageBox.Show($"Viaje cargado.");
-                GestorSql.AgregarNuevoViaje(viaje);
+                gestorSqlViaje.AgregarNuevo(viaje);
             }
             else
             {
@@ -132,8 +137,7 @@ namespace Forms
             try
             {
                 this.CargarCliente();
-
-
+                this.cliente.InformarAltaDeCliente();
             }
             catch (Exception excep)
             {
@@ -147,13 +151,14 @@ namespace Forms
             if (this.txtNombre.Text != String.Empty && this.txtApellido.Text != String.Empty &&
                 this.txtDni.Text != String.Empty)
             {
-                cliente = new Cliente(this.txtNombre.Text, this.txtApellido.Text,
+                this.cliente = new Cliente(this.txtNombre.Text, this.txtApellido.Text,
                     int.Parse(this.txtDni.Text));
-                cliente.Nombre = this.txtNombre.Text;
-                cliente.Apellido = this.txtApellido.Text;
-                cliente.Dni = int.Parse(this.txtDni.Text);
+                this.cliente.Nombre = this.txtNombre.Text;
+                this.cliente.Apellido = this.txtApellido.Text;
+                this.cliente.Dni = int.Parse(this.txtDni.Text);
+                this.cliente.OnDarAltaNuevoCliente += this.MostrarQueSeDioAltaDeCliente;
 
-                GestorSql.AgregarNuevoCliente(cliente);
+                gestorSqlCliente.AgregarNuevo(cliente);
 
             }
             else
@@ -165,12 +170,21 @@ namespace Forms
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            this.lstClientes.Items.Clear();
-            foreach (var item in GestorSql.ObtenerTodosLosClientes())
+            try
             {
-                this.lstClientes.Items.Add(item.MostrarInformacion());
+                this.dgvClientes.DataSource = null;
+                this.dgvClientes.DataSource = gestorSqlCliente.ObtenerTodos();
+                this.dgvClientes.Columns[1].Visible = false;
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
+        private void MostrarQueSeDioAltaDeCliente(string mensaje)
+        {
+            MessageBox.Show(mensaje);
         }
     }
 }

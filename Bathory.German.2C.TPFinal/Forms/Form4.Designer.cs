@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lstClientes = new ListBox();
-            lstPasajes = new ListBox();
             btnMostrarClientes = new Button();
             btnModificarClientes = new Button();
             btnBorrarClientes = new Button();
@@ -41,29 +39,15 @@
             lblNombre = new Label();
             lblApellido = new Label();
             lblDni = new Label();
+            dgvClientes = new DataGridView();
+            dgvPasajes = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPasajes).BeginInit();
             SuspendLayout();
-            // 
-            // lstClientes
-            // 
-            lstClientes.FormattingEnabled = true;
-            lstClientes.ItemHeight = 15;
-            lstClientes.Location = new Point(12, 12);
-            lstClientes.Name = "lstClientes";
-            lstClientes.Size = new Size(413, 214);
-            lstClientes.TabIndex = 0;
-            // 
-            // lstPasajes
-            // 
-            lstPasajes.FormattingEnabled = true;
-            lstPasajes.ItemHeight = 15;
-            lstPasajes.Location = new Point(12, 295);
-            lstPasajes.Name = "lstPasajes";
-            lstPasajes.Size = new Size(738, 214);
-            lstPasajes.TabIndex = 1;
             // 
             // btnMostrarClientes
             // 
-            btnMostrarClientes.Location = new Point(492, 37);
+            btnMostrarClientes.Location = new Point(486, 53);
             btnMostrarClientes.Name = "btnMostrarClientes";
             btnMostrarClientes.Size = new Size(204, 29);
             btnMostrarClientes.TabIndex = 2;
@@ -83,7 +67,7 @@
             // 
             // btnBorrarClientes
             // 
-            btnBorrarClientes.Location = new Point(492, 86);
+            btnBorrarClientes.Location = new Point(486, 88);
             btnBorrarClientes.Name = "btnBorrarClientes";
             btnBorrarClientes.Size = new Size(204, 29);
             btnBorrarClientes.TabIndex = 4;
@@ -93,7 +77,7 @@
             // 
             // btnMostrarPasajes
             // 
-            btnMostrarPasajes.Location = new Point(141, 528);
+            btnMostrarPasajes.Location = new Point(49, 528);
             btnMostrarPasajes.Name = "btnMostrarPasajes";
             btnMostrarPasajes.Size = new Size(204, 29);
             btnMostrarPasajes.TabIndex = 5;
@@ -103,7 +87,7 @@
             // 
             // btnBorraPasajes
             // 
-            btnBorraPasajes.Location = new Point(425, 528);
+            btnBorraPasajes.Location = new Point(347, 528);
             btnBorraPasajes.Name = "btnBorraPasajes";
             btnBorraPasajes.Size = new Size(204, 29);
             btnBorraPasajes.TabIndex = 7;
@@ -159,11 +143,35 @@
             lblDni.TabIndex = 13;
             lblDni.Text = "Nuevo DNI";
             // 
+            // dgvClientes
+            // 
+            dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvClientes.Location = new Point(12, 21);
+            dgvClientes.Name = "dgvClientes";
+            dgvClientes.ReadOnly = true;
+            dgvClientes.RowTemplate.Height = 25;
+            dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvClientes.Size = new Size(416, 224);
+            dgvClientes.TabIndex = 14;
+            // 
+            // dgvPasajes
+            // 
+            dgvPasajes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPasajes.Location = new Point(12, 317);
+            dgvPasajes.Name = "dgvPasajes";
+            dgvPasajes.ReadOnly = true;
+            dgvPasajes.RowTemplate.Height = 25;
+            dgvPasajes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPasajes.Size = new Size(566, 180);
+            dgvPasajes.TabIndex = 15;
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 579);
+            Controls.Add(dgvPasajes);
+            Controls.Add(dgvClientes);
             Controls.Add(lblDni);
             Controls.Add(lblApellido);
             Controls.Add(lblNombre);
@@ -175,21 +183,18 @@
             Controls.Add(btnBorrarClientes);
             Controls.Add(btnModificarClientes);
             Controls.Add(btnMostrarClientes);
-            Controls.Add(lstPasajes);
-            Controls.Add(lstClientes);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "Form4";
             Text = "Opciones de Administrador";
             Load += Form4_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPasajes).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private ListBox lstClientes;
-        private ListBox lstPasajes;
         private Button btnMostrarClientes;
         private Button btnModificarClientes;
         private Button btnBorrarClientes;
@@ -201,5 +206,7 @@
         private Label lblNombre;
         private Label lblApellido;
         private Label lblDni;
+        private DataGridView dgvClientes;
+        private DataGridView dgvPasajes;
     }
 }

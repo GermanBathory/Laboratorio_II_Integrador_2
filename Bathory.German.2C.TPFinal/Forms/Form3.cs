@@ -35,9 +35,7 @@ namespace Forms
                 this.txtUsuario.Clear();
                 this.txtContrasena.Clear();
                 Form4 administrar = new Form4();
-                administrar.ShowDialog();
-
-                
+                administrar.ShowDialog();                                
             }
             else
             {

@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
+    public delegate void DelegadoAltaNuevoCliente(string mensaje);
     public class Cliente : Persona
     {
-
         private int dni;
         private int id_cliente;
 
+        public event DelegadoAltaNuevoCliente OnDarAltaNuevoCliente;
 
         public Cliente()
-        {
+        {           
         }
 
         public Cliente(string nombre, string apellido, int dni)
@@ -53,6 +54,15 @@ namespace Entidades
             sb.Append($"[Nombre: {this.Nombre}] [Apellido: {this.Apellido}] " +
                 $"[DNI: {this.Dni}]");
             return sb.ToString();
+        }
+
+        public void InformarAltaDeCliente()
+        {
+            if (this.OnDarAltaNuevoCliente is not null)
+            {
+                this.OnDarAltaNuevoCliente.Invoke("Se cargó nuevo cliente.");
+            }
+            
         }
     }
 }
